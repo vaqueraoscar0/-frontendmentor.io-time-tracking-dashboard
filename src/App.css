@@ -1,38 +1,466 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Rubik, serif;
+  src: url('https://fonts.google.com/specimen/Rubik');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+html, #root, body, .App{
+  background-color: hsl(226, 43%, 10%);
+  height: 100%;
+  font-family: Rubik, sans-serif;
+  /*background-color: hsl(235, 46%, 20%); !*cards*!*/
+  /*background-color: hsl(235, 45%, 61%);*/
+  /*background-color: hsl(236, 100%, 87%);*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.container{
+  display: grid;
+  height: 600px;
+  width: 1200px;
+  gap: 30px;
+  grid-template-columns: 1fr 0.9fr 0.9fr 0.9fr;
+  grid-template-areas:
+    "mycard card1 card2 card3"
+    "mycard card4 card5 card6";
+
+}
+
+.profile{
+  grid-area: mycard;
+}
+
+.profile-card-top{
+  height: 400px;
+  background-color: hsl(246, 80%, 60%);
+  border-radius: 30px;
+  position: relative;
+  top: 10px;
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 35px;
+  padding-top: 40px;
+}
+
+.profile-card-top img{
+  height: 22%;
+  border: 3px solid white;
+  border-radius: 100%;
+  margin-bottom: 40px;
+}
+
+.profile-card-top label{
+  color: hsl(236, 100%, 87%);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.profile-card-top h1{
+  font-size: 45px;
+  margin-top: 0;
+  font-weight: 300;
+  color: whitesmoke;
+}
+
+.profile-card-bottom{
+  height: 200px;
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 30px;
+  position: relative;
+  bottom: 10px;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.profile-card-bottom button{
+  all: unset;
+  cursor: pointer;
+  margin-left: 40px;
+
+  font-size: 20px;
+  color: hsl(235, 45%, 61%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile-card-bottom button:hover{
+  color: whitesmoke;
+}
+
+
+.card-top{
+  height: 80px;
+  border-radius: 20px;
+  position: relative;
+  top: 20px;
+  z-index: 0;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-top img{
+  margin-right: 20px;
+}
+
+.card-bottom{
+  height: 220px;
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 30px;
+  position: relative;
+  bottom: 10px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.card-bottom:hover{
+  background-color: rgb(47,50,110);
+}
+
+.grid-card1{
+  grid-area: card1;
+  border-radius: 30px;
+}
+
+.grid-card2{
+  grid-area: card2;
+  border-radius: 30px;
+}
+
+.grid-card3{
+  grid-area: card3;
+  border-radius: 30px;
+}
+
+.grid-card4{
+  grid-area: card4;
+  border-radius: 30px;
+}
+
+.grid-card5{
+  grid-area: card5;
+  border-radius: 30px;
+}
+
+.grid-card6{
+  grid-area: card6;
+  border-radius: 30px;
+}
+
+.card-button-line{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.card-button-line h2{
+  color: whitesmoke;
+  font-family: 'Rubik', serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-button-line button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card-button-line img:hover{
+  filter: brightness(0) invert(1);
+}
+
+.card-body{
+  padding-top: 10px;
+}
+
+.hour-text{
+  color: whitesmoke;
+  font-family: 'Rubik', sans-serif;
+  font-size: 60px;
+  font-weight: 300;
+
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.date-type{
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: hsl(236, 100%, 87%);
+}
+
+@media (max-width: 1200px){
+  .container{
+    grid-template-columns: 1fr 0.8fr 0.8fr 0.8fr;
+    height: 500px;
+    width: 1000px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card-top{
+    height: 60px;
   }
+
+  .card-bottom{
+    height: 205px;
+  }
+
+  .card-button-line h2{
+    font-size: 15px;
+  }
+
+  .date-type{
+    font-size: 14px;
+  }
+
+  .profile-card-top{
+    height: 360px;
+  }
+
+  .profile-card-bottom{
+    padding-top: 10px;
+    height: 150px;
+  }
+
+  .profile-card-top h1{
+    font-size: 40px;
+  }
+
+  .card-body .hour-text{
+    font-size: 45px;
+  }
+
+  .profile-card-bottom button{
+    font-size: 18px;
+  }
+
+}
+
+@media (max-width: 1000px){
+  .container{
+    grid-template-columns: 0.8fr 0.7fr 0.7fr 0.7fr;
+    height: 400px;
+    width: 800px;
+  }
+
+  .card-top{
+    height: 45px;
+  }
+
+  .card-bottom{
+    height: 175px;
+  }
+
+  .card-button-line h2{
+    font-size: 13px;
+  }
+
+  .date-type{
+    font-size: 12px;
+  }
+
+  .profile-card-top{
+    padding-right: 35px;
+    height: 280px;
+  }
+
+  .profile-card-bottom{
+    padding-top: 25px;
+    height: 130px;
+  }
+
+  .profile-card-top h1{
+    font-size: 30px;
+  }
+
+  .card-body .hour-text{
+    font-size: 35px;
+  }
+
+  .profile-card-bottom button{
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 625px){
+  .container{
+    grid-template-columns: none;
+    height: 90%;
+    width: 90%;
+
+    grid-template-areas:
+    "mycard"
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6";
+  }
+
+  .card-top{
+    height: 60px;
+  }
+
+  .card-bottom{
+    height: 205px;
+  }
+
+  .card-button-line h2{
+    font-size: 15px;
+  }
+
+  .date-type{
+    font-size: 14px;
+  }
+
+  .profile-card-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 150px;
+  }
+
+  .profile-text{
+  /*  */
+  }
+
+  .profile-card-top img{
+    height: 50%;
+  }
+
+  .profile-card-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 0 0;
+    margin: 0;
+    gap: 0;
+    height: 80px;
+  }
+
+  .profile-card-top h1{
+    font-size: 40px;
+  }
+
+  .card-body .hour-text{
+    font-size: 45px;
+  }
+
+  .profile-card-bottom button{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .card-hour-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+
+}
+
+@media (max-width: 375px){
+  .container{
+    height: 100%;
+    width: 90%;
+    gap: 0;
+    grid-template-areas:
+    "mycard"
+    "card1"
+    "card2"
+    "card3"
+    "card4"
+    "card5"
+    "card6";
+  }
+
+  .card-top{
+    height: 60px;
+  }
+
+  .card-bottom{
+    height: 110px;
+  }
+
+  .card-button-line h2{
+    font-size: 14px;
+  }
+
+  .date-type{
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  .profile-card-top{
+    border-radius: 15px;
+    padding-left: 0;
+    height: 70px;
+  }
+
+  .profile-text{
+    margin-bottom: 25px;
+  }
+
+  .profile-card-top img{
+    height: 80%;
+  }
+
+  .profile-card-bottom{
+    display: flex;
+    align-items: flex-end;
+    padding-top: 0;
+    height: 60px;
+  }
+
+  .profile-card-top h1{
+    font-size: 20px;
+  }
+
+  .card-body .hour-text{
+    font-size: 30px;
+  }
+
+  .profile-card-bottom button{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .card-hour-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .hour-text{
+    margin-top: 0;
+  }
+
 }
